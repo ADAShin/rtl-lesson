@@ -1,14 +1,34 @@
-import React from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
+import { RenderInput } from './RenderInput';
+import { FrameWorkItemType, FrameworkList } from './FrameworkList';
+import { MockServer } from './MockServer';
+import { Redux } from './Redux';
+import { ReduxAsync } from './ReduxAsync';
+import { CustomHook } from './CustomHook';
+
+const data: FrameWorkItemType[] = [
+  { id: 1, item: 'React' },
+  { id: 2, item: 'Angular' },
+  { id: 3, item: 'Vue' },
+];
 
 function App() {
+  const outputConsole = (text: string) => {
+    console.log(text);
+  };
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
+        <RenderInput outputConsole={outputConsole} />
+        <FrameworkList frameworks={data} />
+        <MockServer />
+        <Redux />
+        <ReduxAsync />
+        <CustomHook />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
